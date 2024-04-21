@@ -1,0 +1,32 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+
+<div class="col-12" style="margin-bottom: 30px;">
+    <a class="btn btn-success" href="{% url 'blog:blog_create' %}">
+        Добавить новую запись
+    </a>
+</div>
+{% for blog in blog_list %}
+<div class="col-4">
+    <div class="card">
+        <h1 class="card-header text-center">
+            {{blog.title}}
+        </h1>
+        <div class="card-body text-center">
+            {% if blog.image %}
+            <img src="{{ blog.image.url }}" class="img-fluid" alt="Изображение блога">
+            {% else %}
+            <p>Нет изображения</p>
+            {% endif %}
+        </div>
+        <div class="card-footer text-center">
+            <div class="btn-group">
+                <a href="{% url 'blog:blog_view' blog.pk %}" class="btn btn-sm btn-secondary mr-1">Информация</a>
+                <a href="#" class="btn btn-sm btn-success mr-1">Редактировать</a>
+                <a href="#" class="btn btn-sm btn-danger">Удалить</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

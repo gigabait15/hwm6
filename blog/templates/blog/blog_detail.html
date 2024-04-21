@@ -1,0 +1,39 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Информация
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <th>Заголовок</th>
+                            <td>{{ blog.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Количество просмотров</th>
+                            <td>{{ blog.count_view }} </td>
+                        </tr>
+                        <tr>
+                            <th>Cодержимое</th>
+                            <td style="word-break: break-all">
+                                {{ blog.content }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'blog:blog' %}"
+                       class="btn btn-sm btn-secondary">Вернуться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <div class="card-body">
+            <p class="card-text">
+               какая-то информация
+            </p>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <div class="card-body">
+            <h2>Написать</h2>
+            <form method="post" action="{% url 'catalog:contact' %}">
+                {% csrf_token %}
+                <input class="form-control mb-2" name="name" placeholder="Введите ваше имя" required>
+                <input class="form-control mb-2" name="email" placeholder="Введите ваш email" required>
+                <textarea class="form-control mb-2" name="message" placeholder="Введите сообщение" required></textarea>
+                <button type="submit" class="btn btn-primary form-control">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
